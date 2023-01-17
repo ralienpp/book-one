@@ -10,6 +10,11 @@ jobs:
         uses: xu-cheng/latex-action@master
         with:
           root_file: main.tex
+      - uses: actions/upload-artifact@master
+        with:
+          name: print-pdf
+          path: main.pdf
+
   convert_via_pandoc:
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +29,5 @@ jobs:
             --output output/book.epub
       - uses: actions/upload-artifact@master
         with:
-          name: manuscript
+          name: ebook-epub
           path: output
