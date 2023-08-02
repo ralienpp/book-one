@@ -646,8 +646,9 @@
 
 \newpage
 
-\includegraphics[width=12cm,height=20cm]{example-image-a}
-
+\backgroundsetup{scale = 1, angle = 0, opacity = 1, contents = {\includegraphics[width = \paperwidth] {images/farm-lao-alone}}}
+\BgThispage
+\hfill
 \newpage
 
 \PlainPoemTitle
@@ -821,7 +822,6 @@
 
 \newpage
 
-%\newpage
 
 \backgroundsetup{scale = 1, angle = 0, opacity = 1, contents = {\includegraphics[width = \paperwidth, height = \paperheight] {images/son-broken-leg-end}}}
 \BgThispage
@@ -867,11 +867,49 @@
 помолчал, и сказал \say{может быть\ldots}
 \end{verse}
 
-\hspace{3cm}\includegraphics[width=6cm]{images/lao-wang}
+\hspace{3cm}\vspace{2cm}\includegraphics[width=6cm]{images/yin-yang.jpg}
 
+%\hfill
+
+\newpage
+\begin{figure}[h]
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{images/lao-wang.png}
+		\caption{Лао}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{images/lao-wife.png}
+		\caption{Жена Лао}
+	\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+	\centering
+	\includegraphics[width=.8\linewidth]{images/lao-elder-son.png}
+	\caption{Старший сын}
+\end{subfigure}
+
+	\begin{subfigure}{\textwidth}
+	\vspace{2cm}
+		\centering
+		\includegraphics[width=.7\linewidth]{images/lao-kids.png}
+		\caption{Младшие дети}
+	\end{subfigure}
+	\caption{Лао Вэнь и его семья}
+\end{figure}
+
+\newpage
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=\linewidth]{images/hubei-village.jpg}
+%	\caption{Село в провинции Хубэй, где живет Лао}
+%\end{figure}
+
+\backgroundsetup{scale = 1, angle = 0, opacity = 0.9, contents = {\includegraphics[width = \paperwidth, height = \paperheight] {images/hubei-village.jpg}}}
+\BgThispage
 \hfill
-
-%\newpage
+\newpage
 
 
 
