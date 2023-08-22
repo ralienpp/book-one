@@ -18,6 +18,18 @@
 \usepackage{geometry}
 \usepackage{fontawesome5}
 
+\usepackage{iftex} % for identifying luatex and pdftex
+
+\ifluatex
+	% we're building the special version for dyslexics, it uses a different
+	% font; this can only be done with LuaLaTeX, so we wrap with an #ifdef-like
+	% structure; this logic only applies when compiling with lualatex, otherwise
+	% the typical pdflatex approach is taken
+	
+	% the font has to be copied to /usr/share/fonts/opentype/adys
+	\usepackage{fontspec}
+	\setmainfont{Adys}
+\fi
 
 \usepackage{tikz}
 \usetikzlibrary{fadings}
@@ -435,14 +447,29 @@
 
 % \fancybreak{* * *}
 
+\ifluatex
+%luatex uses a different notation for font size manipulation
 \begin{verse}[\versewidth]
-Вздулись внезапно вокруг паутины\\
-гул вырастал в австралийской пустыне.\\
-Вууу--{\largeдууу}--{\Largeбууу}--{\LARGEдууу!}\\
-Всё громче и громче диджериду!\\
-\say{{\LargeВууу}--{\largeдууу}--буу--{\smallдууууу!}}\\
-Эхом ответила вслед Улур\'{у}.
+	Вздулись внезапно вокруг паутины\\
+	гул вырастал в австралийской пустыне.\\
+	
+	Вууу--{\fontsize{14pt}{16pt}\selectfont дууу}--{\fontsize{16pt}{18pt}\selectfont бууу}--{\fontsize{18pt}{20pt}\selectfont дууу!}\\
+	Всё громче и громче диджериду!\\
+	\say{{\fontsize{20pt}{22pt}\selectfont Вууу}--{\fontsize{18pt}{20pt}\selectfont дууу}--{\fontsize{16pt}{18pt}\selectfont бууу}--{\fontsize{12pt}{14pt}\selectfont дууу!}}\\
+	Эхом ответила вслед Улур\'{у}.
 \end{verse}
+\else
+% assuming we're in pdflate, where \large works
+\begin{verse}[\versewidth]
+	Вздулись внезапно вокруг паутины\\
+	гул вырастал в австралийской пустыне.\\
+	Вууу--{\largeдууу}--{\Largeбууу}--{\LARGEдууу!}\\
+	Всё громче и громче диджериду!\\
+	\say{{\LargeВууу}--{\largeдууу}--буу--{\smallдууууу!}}\\
+	Эхом ответила вслед Улур\'{у}.
+\end{verse}
+\fi
+
 \newpage
 
 
@@ -802,12 +829,24 @@
 уж очень свободу любил он! \\
 \end{verse}
 
+
+\ifluatex
+%luatex uses a different notation for font size manipulation
 \begin{verse}[\versewidth]
-ии{\Largeии}{\LARGEии}-{\hugeха!!!} То влево, то вправо! \\
-Хрипит и кричит он как вихрь! \\
-ии{\Largeии}{\LARGEии}-{\hugeхо!!!} То вперёд, то назад! \\
-Не хочет нести он чужих! \\
+	ии{\fontsize{14pt}{16pt}\selectfont ии}{\fontsize{16pt}{18pt}\selectfont ии}-{\fontsize{18pt}{20pt}\selectfont ха!!!} То влево, то вправо! \\
+	Хрипит и кричит он как вихрь! \\
+	ии{\fontsize{14pt}{16pt}\selectfont ии}{\fontsize{16pt}{18pt}\selectfont ии}-{\fontsize{18pt}{20pt}\selectfont хо!!!} То вперёд, то назад! \\
+	Не хочет нести он чужих! \\
 \end{verse}
+\else
+	% use pdftex specific notation for font size manipulation
+	\begin{verse}[\versewidth]
+	ии{\Largeии}{\LARGEии}-{\hugeха!!!} То влево, то вправо! \\
+	Хрипит и кричит он как вихрь! \\
+	ии{\Largeии}{\LARGEии}-{\hugeхо!!!} То вперёд, то назад! \\
+	Не хочет нести он чужих! \\
+	\end{verse}
+\fi
 
 \begin{verse}[\versewidth]
 Парень вцепился силой троих, \\
