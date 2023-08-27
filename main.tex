@@ -606,27 +606,28 @@
 % \end{verse}
 
 
-% \begin{verse}[\versewidth]
-% На коврике сидя, господин Мыцумото\\ 
-% забыл о работе, забыл о заботах\ldots \\
-% он слился с природой, \\
-% растворил в ней свой ум,\\ 
-% всё вдруг затихло, исчез всякий шум\ldots
-% \end{verse}
-
-% \hspace{-3cm}
-\begin{verse}
-\vspace{-5mm}\hspace{7mm} % compensate space added by bounding rectangle
-\tikz \node[text width=10cm, fill=white, 
-    path fading = side shaded,
-    text opacity=1, inner xsep=2cm, inner ysep=0.5cm]{
+\begin{verse}[\versewidth]
 На коврике сидя, господин Мыцумото\\ 
 забыл о работе, забыл о заботах\ldots \\
 он слился с природой, \\
 растворил в ней свой ум,\\ 
 всё вдруг затихло, исчез всякий шум\ldots
-};
 \end{verse}
+
+% EXPERIMENT: render the text with tikz, such that there's a blurred white oval
+% underneath
+%\begin{verse}
+%\vspace{-5mm}\hspace{7mm} % compensate space added by bounding rectangle
+%\tikz \node[text width=10cm, fill=white, 
+%    path fading = side shaded,
+%    text opacity=1, inner xsep=2cm, inner ysep=0.5cm]{
+%На коврике сидя, господин Мыцумото\\ 
+%забыл о работе, забыл о заботах\ldots \\
+%он слился с природой, \\
+%растворил в ней свой ум,\\ 
+%всё вдруг затихло, исчез всякий шум\ldots
+%};
+%\end{verse}
 
 
 % EXPERIMENT of writing white text on a blurred background
