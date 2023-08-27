@@ -1,33 +1,36 @@
 name: Build LaTeX document and other outputs
 on: [release]
 jobs:
-  build_latex:
+  build_pdf:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v1
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@master
-        with:
-          root_file: main.tex
-      - uses: actions/upload-artifact@master
-        with:
-          name: print-pdf
-          path: main.pdf
+      - name: Checkout source code
+        uses: actions/checkout@v3
 
-  convert_via_pandoc:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: mkdir output
-      - uses: docker://pandoc/core:2.19.2
+      - name: Compile main PDF for screens
+        uses: docker://texlive/texlive
         with:
-          args: >-
-            --standalone main.tex
-            --from latex
-            --to epub
-            --output output/book.epub
-      - uses: actions/upload-artifact@master
+          args: latexmk -pdflatex main.tex
+
+      - name: Compile booklet PDF for printing
+        uses: docker://texlive/texlive
         with:
-          name: ebook-epub
-          path: output
+          args: latexmk -pdflatex booklet.tex
+
+      - name: Archive PDF outputs
+        run: |
+          mkdir pdf-outputs
+          cp main.pdf pdf-outputs/one.pdf
+          cp booklet.pdf pdf-outputs/one-booklet.pdf
+        working-directory: ${{ github.workspace }}
+
+
+      - name: Upload PDFs via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: pdf-outputs/
+          server-dir: /
