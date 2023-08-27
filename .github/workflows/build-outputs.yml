@@ -1,5 +1,7 @@
 name: Build LaTeX document and other outputs
-on: [release]
+on:
+  release:
+    types: [published]
 jobs:
   build_pdf:
     runs-on: ubuntu-latest
