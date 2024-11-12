@@ -1,0 +1,46 @@
+% This logic is responsible for drawing a dashed border at the edges of the page
+% to see where the trimming will be done.
+% Add the line below to main.tex to view the borders
+% \input{debug-border.tex}
+
+
+\usepackage{tikz}
+\usepackage{atbegshi}
+
+% Set default border dimensions based on page size
+\newcommand{\borderwidth}{145mm}  % Default A5 width
+\newcommand{\borderheight}{205mm} % Default A5 height
+
+% Check the paper size using \stockwidth and \stockheight
+\makeatletter
+\ifdim\stockwidth=148mm
+\ifdim\stockheight=210mm
+% A5 size detected
+\renewcommand{\borderwidth}{145mm}
+\renewcommand{\borderheight}{205mm}
+\fi
+\else
+\ifdim\stockwidth=176mm
+\ifdim\stockheight=250mm
+% B5 size detected
+\renewcommand{\borderwidth}{176mm}
+\renewcommand{\borderheight}{250mm}
+\fi
+\fi
+\fi
+\makeatother
+
+% Draw the border at the edges of the page
+\AtBeginShipout{%
+	\AtBeginShipoutUpperLeft{%
+		\begin{tikzpicture}[remember picture,overlay]
+			\node [anchor=north west] at (current page.north west) {
+				\begin{tikzpicture}[overlay]
+					% Draw the red dashed rectangle to indicate the crop area
+					\draw[thick,red,dashed] (1.5mm,-1.5mm) rectangle 
+					(\borderwidth-1.5mm,-\borderheight+1.5mm);
+				\end{tikzpicture}
+			};
+		\end{tikzpicture}%
+	}%
+}
