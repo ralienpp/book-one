@@ -1,0 +1,12 @@
+% This takes the original main.pdf and scales it up to B5,
+% Which might be handy when printing a physical book - the
+% letters will be proportionally larger. The images too, but
+% since most of them are raster graphics - artifacts might be
+% visible
+
+\documentclass[b5paper]{memoir}
+\usepackage{pdfpages}
+
+\begin{document}
+\includepdf[pages=-,fitpaper=true]{main.pdf}
+\end{document}
