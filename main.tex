@@ -310,65 +310,83 @@
 \BgThispage
 
 \newpage
+\hfill
 
 \renewcommand{\thefigure}{\arabic{figure}}
 
-\newgeometry{margin=0in}
+%\newgeometry{margin=0in}
+% in the section below we use `\caption*` with an asterisk to remove
+% subfigure numbers
 \begin{figure}[t]
   \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/bear-laptop.jpg}
-    \caption{Сбор телеметрии с сенсоров}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/bear-laptop.jpg}
+    \caption*{\hspace{-2cm}Сбор телеметрии с сенсоров}
   \end{subfigure}%
   \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/fox-ice-core.jpg}
-    \caption{Экстракция ледяного керна}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/fox-ice-core.jpg}
+    \caption*{\hspace{-2cm}Экстракция ледяного керна}
   \end{subfigure}
   \caption{Решение проблемы глобального потепления}
 \end{figure}
 % \restoregeometry
 
-\vspace{-0.5cm}
+\vspace{2cm}
 \begin{figure}%[h]
-  \begin{subfigure}{.33\paperwidth}
+  \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/orangutan-climber.jpg}
-    \caption{Ремонт генератора}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/orangutan-climber.jpg}
+    \caption*{\hspace{-2cm}Ремонт генератора}
   \end{subfigure}%
-  \begin{subfigure}{.33\paperwidth}
+%  \begin{subfigure}{.33\paperwidth}
+%    \centering
+%    \includegraphics[width=.8\linewidth]{images/orangutan-windfarm.jpg}
+%    \caption{Ветропарк}
+%  \end{subfigure}%
+  \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/orangutan-windfarm.jpg}
-    \caption{Ветропарк}
-  \end{subfigure}%
-  \begin{subfigure}{.33\paperwidth}
-    \centering
-    \includegraphics[width=.8\linewidth]{images/squirrel-solar-panel.jpg}
-    \caption{Солнечные панели}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/squirrel-solar-panel.jpg}
+    \caption*{\hspace{-2cm}Солнечные панели}
   \end{subfigure}
   \caption{Возобновляемая энергия}
 \end{figure}
 
-\vspace{-5.5cm}
+%\vspace{-5.5cm}
 
 % \setlength{\intextsep}{0pt} % Reduce space between figures
 \begin{figure}[h]
   \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/fox-ranger.jpg}
-    \caption{Администратор заповедника}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/fox-ranger.jpg}
+    \caption*{\hspace{-2cm}Администратор заповедника}
   \end{subfigure}%
   \begin{subfigure}{.5\paperwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{images/ocean-cleanup.jpg}
-    \caption{Очищение океана}
+    \hspace{-2cm}\includegraphics[width=.8\linewidth]{images/ocean-cleanup.jpg}
+    \caption*{\hspace{-2cm}Очищение океана}
   \end{subfigure}
   \caption{Защита природы}
 \end{figure}
 
+\begin{figure}[h]
+	\begin{subfigure}{.5\paperwidth}
+		\centering
+		\hspace{-2cm}\includegraphics[width=.8\linewidth]{images/fox-ranger.jpg}
+		\caption*{\hspace{-2cm}Администратор заповедника}
+	\end{subfigure}%
+	\begin{subfigure}{.5\paperwidth}
+		\centering
+		\hspace{-2cm}\includegraphics[width=.8\linewidth]{images/ocean-cleanup.jpg}
+		\caption*{\hspace{-2cm}Очищение океана}
+	\end{subfigure}
+	\caption{Защита природы}
+\end{figure}
+
+\vfill
 
 \newpage
-\begin{figure}[h]
+\begin{figure}%[h]
   \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=.8\linewidth]{images/gnu-screen.jpg}
@@ -390,8 +408,8 @@
 
 
 
-
-\restoregeometry
+\hfill
+%\restoregeometry
 
 \newpage
 \hfill
